@@ -120,7 +120,7 @@ export default function App() {
                             <div className="logoBox">NS</div>
                             <div className="brandText">
                                 <div className="brandName">NewStep</div>
-                                <div className="brandTag">newstep.edu.ge</div>
+                                <div className="brandTag">newstep.ge</div>
                             </div>
                         </div>
 
@@ -129,8 +129,8 @@ export default function App() {
                                 <a className="contactItem" href="tel:+995555000000">
                                     📞 +995 555 00 00 00
                                 </a>
-                                <a className="contactItem" href="mailto:info@newstep.edu.ge">
-                                    ✉️ info@newstep.edu.ge
+                                <a className="contactItem" href="mailto:info@newstep.ge">
+                                    ✉️ info@newstep.ge
                                 </a>
                             </div>
 
