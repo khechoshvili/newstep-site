@@ -1,5 +1,18 @@
 import { useEffect, useMemo, useState } from "react";
 import "./App.css";
+import logo from "./assets/logo.jpg";
+import sofo from "./assets/sofo.jpg";
+import natia from "./assets/natia.jpg";
+import ana from "./assets/ana.jpg";
+import mari from "./assets/mari.jpg";
+import service1 from "./assets/ser1.jpg";
+import service2 from "./assets/ser2.jpg";
+import service3 from "./assets/ser3.jpg";
+import service4 from "./assets/ser4.jpg";
+import service5 from "./assets/ser5.jpg";
+import service6 from "./assets/ser6.jpg";
+import service7 from "./assets/ser7.jpg";
+import service8 from "./assets/ser8.jpg";
 
 const NAV = [
     { id: "about", label: "ორგანიზაციის შესახებ" },
@@ -117,9 +130,11 @@ export default function App() {
                             role="button"
                             tabIndex={0}
                         >
-                            <div className="logoBox">NS</div>
+                            <div className="logoBox" aria-hidden="true">
+                                <img className="logoImg" src={logo} alt="ახალი ნაბიჯი" />
+                            </div>
                             <div className="brandText">
-                                <div className="brandName">NewStep</div>
+                                <div className="brandName">ახალი ნაბიჯი</div>
                                 <div className="brandTag">newstep.ge</div>
                             </div>
                         </div>
@@ -184,63 +199,118 @@ export default function App() {
 
                 <Section id="about" title="ორგანიზაციის შესახებ">
                     <p>
-                        აქ ჩაწერეთ ორგანიზაციის მოკლე აღწერა: მისია, ხედვა და მთავარი მიზნები.
+                        „ახალი ნაბიჯი“ არის ბავშვთა და მოზარდთა რეაბილიტაციისა და აბილიტაციის არაკომერციული ცენტრი, რომელიც 0–18 წლის ასაკის ბავშვებს ეხმარება ფიზიკურ, ფსიქოლოგიურ და საგანმანათლებლო განვითარებაში.
+
+                        ცენტრი უზრუნველყოფს ინდივიდუალურად მორგებულ სარეაბილიტაციო პროგრამებს, სპეციალიზებულ თერაპიულ მომსახურებებს და პროფესიულ კონსულტაციებს მშობლებისა და მომვლელებისთვის. ჩვენი მულტიდისციპლინური მიდგომა ეფუძნება თითოეული ბავშვის უნიკალურ საჭიროებებს, შესაძლებლობებსა და განვითარების მიზნებს.
+
+                        ჩვენი მისიაა ბავშვების განვითარების ხელშეწყობა, სოციალური ინკლუზიის გაძლიერება და მათი პოტენციალის სრულად რეალიზება თანამედროვე, მტკიცებულებებზე დაფუძნებული მეთოდების გამოყენებით. ორგანიზაციის ფინანსური რესურსები სრულად ხმარდება ბავშვთა განვითარების, რეაბილიტაციისა და საგანმანათლებლო პროგრამების განხორციელებას.
+
                     </p>
                 </Section>
 
                 <Section id="team" title="გუნდი">
-                    <div className="grid3">
+                    <div className="grid4">
                         <div className="card">
-                            <div className="avatar">A</div>
+                            <img className="avatar" src={sofo}></img>
                             <div>
-                                <h4>სახელი გვარი</h4>
-                                <p>პოზიცია / როლი</p>
+                                <h4>სოფიკო ძამუკაშვილი</h4>
+                                <p>ცენტრის დირექტორი</p>
                             </div>
                         </div>
                         <div className="card">
-                            <div className="avatar">B</div>
+                            <img className="avatar" src={natia}></img>
                             <div>
-                                <h4>სახელი გვარი</h4>
-                                <p>პოზიცია / როლი</p>
+                                <h4>ნათია კაშია</h4>
+                                <p>სენსორული თერაპიის სუპერვიზორი</p>
                             </div>
                         </div>
                         <div className="card">
-                            <div className="avatar">C</div>
+                            <img className="avatar" src={ana}></img>
                             <div>
-                                <h4>სახელი გვარი</h4>
-                                <p>პოზიცია / როლი</p>
+                                <h4>ანა ყოჩაშვილი</h4>
+                                <p>ენისა და მეტყველების თერაპევტი</p>
+                            </div>
+                        </div>
+                        <div className="card">
+                            <img className="avatar" src={mari}></img>
+                            <div>
+                                <h4>მარი გაბიტაშვილი</h4>
+                                <p>ქცევითი თერაპევტი</p>
                             </div>
                         </div>
                     </div>
                 </Section>
 
                 <Section id="services" title="სერვისები">
-                    <ul className="list">
-                        <li>სერვისი #1 — მოკლე აღწერა</li>
-                        <li>სერვისი #2 — მოკლე აღწერა</li>
-                        <li>სერვისი #3 — მოკლე აღწერა</li>
-                    </ul>
+                    <div className="servicesRows">
+                        {/* Row 1 */}
+                        <div className="grid4">
+                            <div className="card serviceCard">
+                                <img className="avatar serviceAvatar" src={service1} alt="სერვისი 1" />
+                                <h4 className="serviceName">AbA თერაპია</h4>
+                            </div>
+
+                            <div className="card serviceCard">
+                                <img className="avatar serviceAvatar" src={service2} alt="სერვისი 2" />
+                                <h4 className="serviceName">ფსიქო თერაპია</h4>
+                            </div>
+
+                            <div className="card serviceCard">
+                                <img className="avatar serviceAvatar" src={service3} alt="სერვისი 3" />
+                                <h4 className="serviceName">არტ თერაპია</h4>
+                            </div>
+
+                            <div className="card serviceCard">
+                                <img className="avatar serviceAvatar" src={service4} alt="სერვისი 4" />
+                                <h4 className="serviceName">აკადემიური უნარების თერაპია</h4>
+                            </div>
+                        </div>
+
+                        {/* Row 2 */}
+                        <div className="grid4">
+                            <div className="card serviceCard">
+                                <img className="avatar serviceAvatar" src={service5} alt="სერვისი 5" />
+                                <h4 className="serviceName">სენსორული თერაპია</h4>
+                            </div>
+
+                            <div className="card serviceCard">
+                                <img className="avatar serviceAvatar" src={service6} alt="სერვისი 6" />
+                                <h4 className="serviceName">ფიზიკური თერაპია</h4>
+                            </div>
+
+                            <div className="card serviceCard">
+                                <img className="avatar serviceAvatar" src={service7} alt="სერვისი 7" />
+                                <h4 className="serviceName">მეტყველებითი თერაპია</h4>
+                            </div>
+
+                            <div className="card serviceCard">
+                                <img className="avatar serviceAvatar" src={service8} alt="სერვისი 8" />
+                                <h4 className="serviceName">მუსიკა თერაპია</h4>
+                            </div>
+                        </div>
+                    </div>
                 </Section>
 
                 <Section id="donors" title="დონორები">
                     <div className="grid4">
-                        <div className="pill">Donor 1</div>
-                        <div className="pill">Donor 2</div>
-                        <div className="pill">Donor 3</div>
-                        <div className="pill">Donor 4</div>
+                        <div className="pill">დონორები ვერ მოიძებნა</div>
+                        {/*<div className="pill">Donor 2</div>*/}
+                        {/*<div className="pill">Donor 3</div>*/}
+                        {/*<div className="pill">Donor 4</div>*/}
                     </div>
                 </Section>
 
                 <Section id="projects" title="პროექტები">
-                    <div className="grid2">
-                        <div className="project">
-                            <h4>პროექტი 1</h4>
-                            <p>მოკლე აღწერა, მიზანი და შედეგი.</p>
-                        </div>
-                        <div className="project">
-                            <h4>პროექტი 2</h4>
-                            <p>მოკლე აღწერა, მიზანი და შედეგი.</p>
-                        </div>
+                    <div className="grid4">
+                        <div className="pill">პროექტები ვერ მოიძებნა</div>
+                        {/*<div className="project">*/}
+                        {/*    <h4>პროექტი 1</h4>*/}
+                        {/*    <p>მოკლე აღწერა, მიზანი და შედეგი.</p>*/}
+                        {/*</div>*/}
+                        {/*<div className="project">*/}
+                        {/*    <h4>პროექტი 2</h4>*/}
+                        {/*    <p>მოკლე აღწერა, მიზანი და შედეგი.</p>*/}
+                        {/*</div>*/}
                     </div>
                 </Section>
 
@@ -267,7 +337,13 @@ export default function App() {
             <footer className="footer">
                 <div className="container footerInner">
                     <span>© {new Date().getFullYear()} NewStep</span>
-                    <button className="btn ghost" onClick={() => scrollToId("top")}>ზემოთ ↑</button>
+
+                    <div className="footerRight">
+                        <small className="footerCredit">
+                            Site by <strong>Shalva Khechoshvili</strong>
+                        </small>
+                        <button className="btn ghost" onClick={() => scrollToId("top")}>ზემოთ ↑</button>
+                    </div>
                 </div>
             </footer>
         </div>
