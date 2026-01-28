@@ -232,35 +232,40 @@ function Carousel({ slides, intervalMs = 4500, labels }) {
                 <div className="carouselContent">
                     <h2>{current.title}</h2>
                     <p>{current.text}</p>
-                    <div className="carouselControls">
-                        <button
-                            className="btn ghost"
-                            onClick={() => setIdx((v) => (v - 1 + slides.length) % slides.length)}
-                            aria-label={labels?.prev || "Previous slide"}
-                        >
-                            ◀
-                        </button>
-
-                        <div className="dots" role="tablist" aria-label="Slide selector">
-                            {slides.map((_, i) => (
-                                <button
-                                    key={i}
-                                    className={`dot ${i === idx ? "active" : ""}`}
-                                    onClick={() => setIdx(i)}
-                                    aria-label={`Go to slide ${i + 1}`}
-                                />
-                            ))}
-                        </div>
-
-                        <button
-                            className="btn ghost"
-                            onClick={() => setIdx((v) => (v + 1) % slides.length)}
-                            aria-label={labels?.next || "Next slide"}
-                        >
-                            ▶
-                        </button>
-                    </div>
                 </div>
+                <div className="carouselControls">
+                    <button
+                        className="carouselArrow left"
+                        onClick={() => setIdx((v) => (v - 1 + slides.length) % slides.length)}
+                        aria-label="Previous slide"
+                    >
+                        <svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M15 18l-6-6 6-6" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+                        </svg>
+                    </button>
+
+                    <div className="dotsBottom" role="tablist" aria-label="Slide selector">
+                        {slides.map((_, i) => (
+                            <button
+                                key={i}
+                                className={`dot ${i === idx ? "active" : ""}`}
+                                onClick={() => setIdx(i)}
+                                aria-label={`Go to slide ${i + 1}`}
+                            />
+                        ))}
+                    </div>
+
+                    <button
+                        className="carouselArrow right"
+                        onClick={() => setIdx((v) => (v + 1) % slides.length)}
+                        aria-label="Next slide"
+                    >
+                        <svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M9 18l6-6-6-6" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
+
             </div>
         </section>
     );
