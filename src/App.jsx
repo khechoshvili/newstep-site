@@ -378,10 +378,10 @@ export default function App() {
                         <div className="rightArea">
                             <div className="contactRight">
                                 <a className="contactItem" href="tel:+995577987280">
-                                    📞 +995 577 987 280
+                                    📞 +995 598 711 276
                                 </a>
-                                <a className="contactItem" href="mailto:info@newstep.ge">
-                                    ✉️ info@newstep.ge
+                                <a className="contactItem" href="mailto:akhalinabiji@yahoo.com">
+                                    ✉️ akhalinabiji@yahoo.com
                                 </a>
                             </div>
 
@@ -562,8 +562,8 @@ export default function App() {
                     <div className="grid2">
                         <div className="project">
                             <h4>კონტაქტი</h4>
-                            <p>📞 +995 577 987 280</p>
-                            <p>✉️ info@newstep.ge</p>
+                            <p>📞 +995 598 711 276</p>
+                            <p>✉️ akhalinabiji@yahoo.com</p>
                             <p>📍 მისამართი: თბილისი, საქართველო</p>
                         </div>
 
