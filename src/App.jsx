@@ -14,6 +14,7 @@ import service5 from "./assets/ser5.jpg";
 import service6 from "./assets/ser6.jpg";
 import service7 from "./assets/ser7.jpg";
 import service8 from "./assets/ser8.jpg";
+import service9 from "./assets/ser9.jpg";
 
 const PHONE_DISPLAY = "+995 598 711 276";
 const PHONE_TEL = "+995598711276";
@@ -84,6 +85,7 @@ const I18N = {
             "ფიზიკური თერაპია",
             "მეტყველებითი თერაპია",
             "მუსიკოთერაპია",
+            "ჯგუფური თერაპია",
         ],
 
         empty: {
@@ -176,6 +178,7 @@ Our mission is to promote children’s development, strengthen social inclusion,
             "Physical Therapy",
             "Speech & Language Therapy",
             "Music Therapy",
+            "Group Therapy",
         ],
 
         empty: {
@@ -185,7 +188,7 @@ Our mission is to promote children’s development, strengthen social inclusion,
 
         contact: {
             cardTitle: "Contact",
-            address: "📍 Address: Tbilisi, Georgia",
+            address: "📍 Address: Marjanishvili street, Gurjaani, Georgia",
             form: {
                 name: "Name",
                 email: "Email",
@@ -331,6 +334,7 @@ export default function App() {
     const [activeMember, setActiveMember] = useState(null);
     const [aboutOpen, setAboutOpen] = useState(false);
     const [form, setForm] = useState({ name: "", email: "", message: "" });
+    const [activeService, setActiveService] = useState(null);
 
     const TEAM = useMemo(
         () => [
@@ -631,6 +635,85 @@ export default function App() {
         []
     );
 
+    const SERVICES_DETAILS = useMemo(
+        () => [
+            {
+                title: { ka: "ABA თერაპია", en: "ABA Therapy" },
+                text: {
+                    ka: "ABA თერაპია (Applied Behavior Analysis – გამოყენებითი ქცევითი ანალიზი) წარმოადგენს მეცნიერულად დასაბუთებულ მიდგომას, რომელიც მიზნად ისახავს ქცევის გაუმჯობესებას და ბავშვის ფუნქციური უნარების განვითარებას. იგი ფართოდ გამოიყენება აუტიზმის სპექტრის მქონე ბავშვებთან, თუმცა ეფექტურია სხვა განვითარების სირთულეების შემთხვევაშიც.",
+                    en: "ABA therapy (Applied Behavior Analysis) is a scientifically validated approach aimed at improving behavior and developing a child’s functional skills. It is widely used with children on the autism spectrum, but it is also effective for other developmental challenges.",
+                },
+            },
+            {
+                title: { ka: "ფსიქოთერაპია", en: "Psychotherapy for Children" },
+                text: {
+                    ka: "ფსიქოთერაპია ეხმარება ბავშვებს ფსიქოლოგიური გამოწვევების გადალახვაში, ემოციების უკეთ გაანალიზებასა და პრობლემების კონსტრუქციულად გადაწყვეტაში. ჩვენი სპეციალისტები მხარს უჭერენ ბავშვების უსაფრთხო, სითბოთი და ყურადღებით სავსე გარემოს, რათა ისინი გაიზარდონ უფრო თვითდაჯერებულები და ხელი შეუწყონ მათ ემოციურ რეგულაციას.",
+                    en: "Psychotherapy helps children overcome psychological challenges, better understand their emotions, and solve problems constructively. Our specialists provide a safe, warm, and supportive environment to help children grow more confident and enhance their emotional regulation skills.",
+                },
+            },
+            {
+                title: { ka: "არტ თერაპია", en: "Art Therapy" },
+                text: {
+                    ka: "არტ თერაპია ეხმარება ბავშვებს ემოციების გამოხატვაში, შემოქმედებითი უნარების განვითარებაში და ფსიქოლოგიური სტრესის გადამუშავებაში. თერაპია იყენებს მხატვრულ საქმიანობას, ხატვას, ფერწერას, ხელოვნების სხვადასხვა ფორმას, რათა ბავშვებმა შეძლონ საკუთარი აზრებისა და გრძნობების გამოხატვა უსაფრთხო და მხიარულ გარემოში. ჩვენი სპეციალისტები მხარს უჭერენ ბავშვებს, რომ ისინი უფრო თვითდაჯერებულები და შემოქმედებითად აქტიურები გახდნენ.",
+                    en: "Art therapy helps children express their emotions, develop creative skills, and process psychological stress. The therapy uses artistic activities such as drawing, painting, and various forms of art to allow children to express their thoughts and feelings in a safe and enjoyable environment. Our specialists support children in becoming more confident and creatively active.",
+                },
+            },
+            {
+                title: { ka: "აკადემიური უნარების თერაპია", en: "Academic Skills Therapy" },
+                text: {
+                    ka: "აკადემიური უნარების თერაპია ეხმარება ბავშვს სწავლაში წარმატების მიღწევაში, კითხვა-გაგების, წერის, მათემატიკური უნარების და დავალებების შესრულების განვითარებაში.",
+                    en: "Academic skills therapy helps children succeed in learning by developing reading comprehension, writing, math skills, and task completion abilities. Our specialists provide individualized support, helping each child build confidence, stay focused, and reach their full academic potential in a positive and encouraging environment.",
+                },
+            },
+            {
+                title: { ka: "სენსორული თერაპია", en: "Sensory Therapy" },
+                text: {
+                    ka: "სენსორული თერაპია ეხმარება ბავშვებს შეისწავლონ და გაიგონ გარემოს სენსორული ინფორმაცია — მხედველობა, მოსმენა, შეხება, მოძრაობა და ბალანსი. თერაპია ხელს უწყობს ყურადღების, ემოციური რეგულაციის, მოძრაობის კოორდინაციისა და ყოველდღიური უნარების განვითარებას. ჩვენი სპეციალისტები მხარს უჭერენ ბავშვებს, რომ ისინი მარტივად ადაპტირდნენ გარემოსთან და უფრო თავდაჯერებულნი იყვნენ ყოველდღიურ ცხოვრებაში.",
+                    en: "Sensory therapy helps children explore and understand sensory information from their environment, including sight, hearing, touch, movement, and balance. It supports the development of attention, emotional regulation, motor coordination, and daily living skills. Our specialists help children adapt to their surroundings and build confidence in everyday life.",
+                },
+            },
+            {
+                title: { ka: "ფიზიკური თერაპია", en: "Physical Therapy" },
+                text: {
+                    ka: "ფიზიკური თერაპია ეხმარება ბავშვებს განვითარების, მოძრაობის კოორდინაციისა და ძალის გაძლიერებაში. თერაპია მოიცავს მობილობის, ბალანსის, კუნთების ტონუსის და სხეულის მართვის გაუმჯობესებას. ჩვენი სპეციალისტები მხარს უჭერენ ბავშვებს, რომ ისინი განვითარდნენ დამოუკიდებლად, თავდაჯერებულად და უსაფრთხოდ იგრძნონ თავი ყოველდღიურ ცხოვრებაში.",
+                    en: "Physical therapy helps children improve their development, movement coordination, and strength. It focuses on enhancing mobility, balance, muscle tone, and body control. Our specialists support children in developing independence, confidence, and a safe sense of movement in their daily lives.",
+                },
+            },
+            {
+                title: { ka: "მეტყველების თერაპია", en: "Speech Therapy" },
+                text: {
+                    ka: "მეტყველების თერაპია ეხმარება ბავშვს განვითარებაში, კომუნიკაციის უნარების გაძლიერებასა და სიტყვების სწორ წარმოთქმაში. თერაპია მოიცავს მეტყველების, ენის, ხმოვანი უნარების, ორალური-მოტორული განვითარების და სოციალური კომუნიკაციის მიმართულებებს. ჩვენი სპეციალისტები ბავშვებს მხარს უჭერენ, რომ ისინი დამოუკიდებლად საუბრობდნენ და მარტივად გამოხატავდნენ საკუთარ აზრებს.",
+                    en: "Speech therapy helps children improve their speech, strengthen communication skills, and express their thoughts clearly. It covers speech, language, vocal skills, oral-motor development, and social communication. Our specialists support children in speaking confidently, independently, and comfortably.",
+                },
+            },
+            {
+                title: { ka: "მუსიკა თერაპია", en: "Music Therapy" },
+                text: {
+                    ka: "მუსიკა თერაპია ეხმარება ბავშვებს ემოციების გამოხატვაში, სტრესის შემცირებაში და სოციალური უნარების განვითარების ხელშეწყობაში. ჩვენი სპეციალისტები იყენებენ სიმღერას, ინსტრუმენტების თამაშსა და მუსიკალურ აქტივობებს, რათა ბავშვებმა უსაფრთხო და მხიარული გარემოში გამოავლინონ საკუთარი შემოქმედება, გააძლიერონ თვითდაჯერებულობა და აღმოაჩინონ მუსიკის განწყობების ძალა.",
+                    en: "Music therapy helps children express their emotions, reduce stress, and develop social skills. Our specialists use singing, playing instruments, and engaging in musical activities to help children explore their creativity, build confidence, and discover the uplifting power of music in a safe and enjoyable environment.",
+                },
+            },
+            {
+                title: { ka: "ჯგუფური თერაპია", en: "Group Therapy" },
+                text: {
+                    ka: "ჩვენს ცენტრში ჯგუფური თერაპია ერთობლივი განვითარების საუკეთესო სივრცეა. მცირე ჯგუფებში მუშაობა ბავშვებს ეხმარება სოციალური ბარიერების გადალახვასა და ახალი უნარების რეალურ გარემოში ათვისებაში.\n" +
+                        "რას ვიღებთ ჯგუფური თერაპიით?\n" +
+                        "• სოციალიზაცია: თანატოლებთან ურთიერთობის, მოსმენისა და თანამშრომლობის სწავლა.\n" +
+                        "• კომუნიკაცია: აზრების გამოხატვა და სხვისი ემოციების გაგება.\n" +
+                        "• თვითდაჯერებულობა: საკუთარი ძალების რწმენა მეგობრულ და მხარდამჭერ გარემოში.\n" +
+                        "• ქცევის მართვა: პოზიტიური ჩვევების გამომუშავება თამაშისა და როლური აქტივობების მეშვეობით.",
+                    en: "At our center, group therapy is the premier space for collective development. Working in small groups helps children overcome social barriers and acquire new skills in a real-world environment.\n" +
+                        "What do we gain through group therapy?\n" +
+                        "• Socialization: Learning to interact, listen, and cooperate with peers.\n" +
+                        "• Communication: Expressing thoughts and understanding the emotions of others.\n" +
+                        "• Self-Confidence: Building belief in one's own abilities within a friendly and supportive atmosphere.\n" +
+                        "• Behavioral Management: Developing positive habits through play and role-playing activities." ,
+                        },
+            },
+        ],
+        []
+    );
+
     const SERVICES_MEDIA = useMemo(
         () => [
             { img: service1 },
@@ -641,6 +724,7 @@ export default function App() {
             { img: service6 },
             { img: service7 },
             { img: service8 },
+            { img: service9 },
         ],
         []
     );
@@ -791,35 +875,18 @@ export default function App() {
                 </Section>
 
                 <Section id="services" title={t.sectionTitles.services}>
-                    <div className="servicesRows">
-                        <div className="grid4">
-                            {t.services.slice(0, 4).map((label, i) => (
-                                <div key={label} className="card serviceCard">
-                                    <img
-                                        className="avatar serviceAvatar"
-                                        src={SERVICES_MEDIA[i].img}
-                                        alt={label}
-                                    />
-                                    <h4 className="serviceName">{label}</h4>
-                                </div>
-                            ))}
-                        </div>
-
-                        <div className="grid4">
-                            {t.services.slice(4, 8).map((label, j) => {
-                                const i = j + 4;
-                                return (
-                                    <div key={label} className="card serviceCard">
-                                        <img
-                                            className="avatar serviceAvatar"
-                                            src={SERVICES_MEDIA[i].img}
-                                            alt={label}
-                                        />
-                                        <h4 className="serviceName">{label}</h4>
-                                    </div>
-                                );
-                            })}
-                        </div>
+                    <div className="grid4">
+                        {t.services.map((label, i) => (
+                            <button
+                                key={label}
+                                className="card serviceCard teamCardBtn"
+                                type="button"
+                                onClick={() => setActiveService(SERVICES_DETAILS[i])}
+                            >
+                                <img className="avatar serviceAvatar" src={SERVICES_MEDIA[i].img} alt={label} />
+                                <h4 className="serviceName">{label}</h4>
+                            </button>
+                        ))}
                     </div>
                 </Section>
 
@@ -913,6 +980,17 @@ export default function App() {
                     {activeMember?.bio?.[lang] || ""}
                 </p>
             </Modal>
+
+            <Modal
+                open={!!activeService}
+                onClose={() => setActiveService(null)}
+                title={activeService?.title?.[lang] || ""}
+            >
+                <p style={{ marginBottom: 0, color: "var(--text)", whiteSpace: "pre-line" }}>
+                    {activeService?.text?.[lang] || ""}
+                </p>
+            </Modal>
+
         </div>
     );
 }
