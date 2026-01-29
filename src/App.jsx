@@ -6,6 +6,7 @@ import natia from "./assets/natia.jpg";
 import ana from "./assets/ana.jpg";
 import mari from "./assets/mari.jpg";
 import ketevan from "./assets/ketevan.jpg";
+import giorgi from "./assets/giorgi.png";
 import service1 from "./assets/ser1.jpg";
 import service2 from "./assets/ser2.jpg";
 import service3 from "./assets/ser3.jpg";
@@ -631,6 +632,33 @@ export default function App() {
                         "• Gestalt therapy theory and practice — 18 hours (2014)\n",
                 },
             },
+            {
+                id: "giorgi",
+                name: "გიორგი მარტაშვილი",
+                nameEn: "Giorgi Martashvili",
+                role: {
+                    ka: "ფიზიკური თერაპევტი",
+                    en: "Physical Therapist",
+                },
+                img: giorgi,
+                bio: {
+                    ka:
+                        "განათლება\n" +
+                        "• ფიზიკური მედიცინა და რეაბილიტაცია — ბაკალავრი, თბილისის სახელმწიფო სამედიცინო უნივერსიტეტი (2019–2023)\n" +
+                        "• პედიატრიული რეაბილიტაცია — მაგისტრი, თბილისის სახელმწიფო სამედიცინო უნივერსიტეტი (2023–2025)\n\n" +
+                        "სერთიფიკატები/ტრენინგები\n" +
+                        "• Anatomy Palpation (2023)\n" +
+                        "• Massage gun in manual therapy (2023)\n" +
+                        "• ICDP — ბავშვის და მოზარდის განვითარების მხარდამჭერი (2024)\n\n" ,
+                    en:
+                        "Education\n" +
+                        "• BSc in Physical Medicine & Rehabilitation — Tbilisi State Medical University (2019–2023)\n" +
+                        "• MSc in Pediatric Rehabilitation — Tbilisi State Medical University (2023–2025)\n\n" +
+                        "Certificates / Trainings\n" +
+                        "• Anatomy Palpation course (2023)\n" +
+                        "• Training in the use of massage gun in manual therapy (2023)\n" +
+                        "• ICDP — Child & Adolescent Development Support (2024)\n\n",
+                }}
         ],
         []
     );
